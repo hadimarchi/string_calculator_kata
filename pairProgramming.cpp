@@ -7,19 +7,16 @@ using std::string;
 
 string delimiter = ",";
 int add(const string &addable){
-    string modified_add = addable;
-    modified_add += ",";
     vector<int> nums{};
     if(addable.size()==0){
         return 0;
     }
 
-    auto num1 = stoi(modified_add.substr(0, modified_add.find(delimiter)));
-    int num2;
+    auto num1 = stoi(addable.substr(0, addable.find(delimiter)));
+    int num2 = 0;
     try{
-      std::cout<<modified_add;
-      num2 = stoi(modified_add.substr(1, modified_add.find(delimiter)));
-      std::cout<<num2;
+      auto num2 = stoi(addable.substr(2, addable.find(delimiter)));
+      return num1 + num2;
     }
     catch(...){
       return num1;
